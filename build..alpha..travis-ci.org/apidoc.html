@@ -1,0 +1,164 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/dthree/vorpal#readme"
+
+    >vorpal (v1.12.0)</a>
+</h1>
+<h4>Node's first framework for building immersive CLI apps.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vorpal">module vorpal</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vorpal.vorpal">
+            function <span class="apidocSignatureSpan"></span>vorpal
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vorpal" id="apidoc.module.vorpal">module vorpal</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vorpal.vorpal" id="apidoc.element.vorpal.vorpal">
+        function <span class="apidocSignatureSpan"></span>vorpal
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Vorpal() {
+  if (!(this instanceof Vorpal)) {
+    return new Vorpal();
+  }
+
+  // Program version
+  // Exposed through vorpal.version(str);
+  this._version = &#x27;&#x27;;
+
+  // Command line history instance
+  this.cmdHistory = new this.CmdHistoryExtension();
+
+  // Registered `vorpal.command` commands and
+  // their options.
+  this.commands = [];
+
+  // Queue of IP requests, executed async, in sync.
+  this._queue = [];
+
+  // Current command being executed.
+  this._command = undefined;
+
+  // Expose UI.
+  this.ui = ui;
+
+  // Expose chalk as a convenience.
+  this.chalk = chalk;
+
+  // Expose lodash as a convenience.
+  this.lodash = _;
+
+  // Exposed through vorpal.delimiter(str).
+  this._delimiter = &#x27;local@&#x27; + String(os.hostname()).split(&#x27;.&#x27;)[0] + &#x27;~$ &#x27;;
+  ui.setDelimiter(this._delimiter);
+
+  // Placeholder for vantage server. If vantage
+  // is used, this will be over-written.
+  this.server = {
+    sessions: []
+  };
+
+  // Whether all stdout is being hooked through a function.
+  this._hooked = false;
+
+  this._useDeprecatedAutocompletion = false;
+
+  // Expose common utilities, like padding.
+  this.util = VorpalUtil;
+
+  this.Session = Session;
+
+  // Active vorpal server session.
+  this.session = new this.Session({
+    local: true,
+    user: &#x27;local&#x27;,
+    parent: this,
+    delimiter: this._delimiter
+  });
+
+  // Allow unix-like key value pair normalization to be turned off by toggling this switch on.
+  this.isCommandArgKeyPairNormalized = true;
+
+  this._init();
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
